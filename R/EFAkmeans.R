@@ -1,0 +1,96 @@
+#'
+#' K-means for EFA
+#'
+#' @description
+#' A function performs K-means algorithm on items by calling \link[stats]{kmeans}.
+#'
+#'
+#' @param response A required \code{N} × \code{I} matrix or data.frame consisting of the responses of \code{N} individuals
+#'          to \code{I} items.
+#' @param nfact.max The maximum number of factors discussed by EFAkmeans approach. (default = 10)
+#' @param plot A Boolean variable that will print the EFAkmeans plot when set to TRUE, and will not print it when set to
+#'          FALSE. @seealso \code{\link[EFAfactors]{plot.EFAkmeans}}. (Default = TRUE)
+#'
+#' @return An object of class \code{EFAkmeans} is a \code{list} containing the following components:
+#' \item{wss}{A vector containing all within-cluster sum of squares (WSS).}
+#' \item{nfact.SOD}{The number of factors to be retained by the Second-Order Difference (SOD) approach.}
+#'
+#' @details
+#' K-means is a well-established and widely used classical clustering algorithm.
+#' It is an unsupervised machine learning algorithm that requires the number of clusters K to be specified in advance.
+#' After K-means terminates, the total within-cluster sum of squares (WSS) can be calculated to represent the goodness
+#' of fit of the clustering:
+#' \deqn{WSS = \sum_{\mathbf{C}_k \in \mathbf{C}} \sum_{i \in \mathbf{C}_k} \|i - \mu_k\|^2}
+#'
+#' where
+#' \eqn{\mathbf{C}} is the set of all clusters.
+#' \eqn{\mathbf{C}_k} is the k-th cluster.
+#' \eqn{i} represents each item in the cluster \eqn{\mathbf{C}_k}.
+#' \eqn{\mu_k} is the centroid of cluster \eqn{\mathbf{C}_k}.
+#'
+#' Similar to the scree plot where eigenvalues decrease as the number of factors increases,
+#' WSS also decreases as K increases. A "significant reduction" in WSS at a particular K may suggest that K is the
+#' most appropriate number of clusters, which in exploratory factor analysis implies that the number of factors is K.
+#' The "significant reduction" can be identified using the Second-Order Difference (SOD) approach. @seealso \code{\link[EFAfactors]{EFAkmeans}}
+#'
+#'
+#'
+#' @examples
+#' library(EFAfactors)
+#' set.seed(123)
+#'
+#' ##Take the data.bfi dataset as an example.
+#' data(data.bfi)
+#'
+#' response <- as.matrix(data.bfi[, 1:25]) ## loading data
+#' response <- na.omit(response) ## Remove samples with NA/missing values
+#'
+#' ## Transform the scores of reverse-scored items to normal scoring
+#' response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
+#'
+#'
+#' ## Run EFAkmeans function with default parameters.
+#' \donttest{
+#'  EFAkmeans.obj <- EFAkmeans(response)
+#'
+#'  plot(EFAkmeans.obj)
+#'
+#'  ## Get the heights.
+#'  wss <- EFAkmeans.obj$wss
+#'  print(wss)
+#'
+#'  ## Get the nfact retained by SOD
+#'  nfact.SOD <- EFAkmeans.obj$nfact.SOD
+#'  print(nfact.SOD)
+#'
+#'
+#' }
+#'
+#'
+#' @importFrom stats cor kmeans
+#'
+#' @export
+EFAkmeans <- function(response, nfact.max = 10, plot=TRUE){
+
+  response <- scale(response)
+  response <- as.matrix(response)
+  tresponse <- t(response)
+
+  # set.seed(123)
+  k.values <- 2:min(nfact.max, ncol(response)-1)
+  wss <- c(kmeans(tresponse, centers = 1)$tot.withinss,
+                  sapply(k.values, function(k) {
+                    kmeans(tresponse, centers = k)$tot.withinss
+                  }))
+
+  nfact.SOD <- which.max(diff(diff(wss))) + 1
+  if(length(nfact.SOD) == 0)
+    nfact.SOD <- 1
+
+  EFAkmeans.obj <- list(wss=wss, nfact.SOD=nfact.SOD)
+  class(EFAkmeans.obj) <- "EFAkmeans"
+
+  if(plot) plot(EFAkmeans.obj)
+
+  return(EFAkmeans.obj)
+}

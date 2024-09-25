@@ -1,0 +1,26 @@
+#' the Scaler for the Pre-Trained Deep Neural Network (DNN)
+#'
+#' @description
+#' This dataset contains the means and standard deviations of the 10,000,000 datasets for
+#' training Pre-Trained Deep Neural Network (DNN), which can be used to determine the number of factors.
+#'
+#' @format A \code{list} containing two \code{vector}s, each of length 54:
+#' \describe{
+#'   \item{means}{A numeric vector representing the means of the 54
+#'                features extracted from the 10,000,000 datasets.}
+#'   \item{sds}{A numeric vector representing the standard deviations of
+#'              the 54 features extracted from the 10,000,000 datasets.}
+#' }
+#' @seealso \link[EFAfactors]{DNN_predictor}, \link[EFAfactors]{load_scaler}, \link[EFAfactors]{data.datasets}, \link[EFAfactors]{normalizor}
+#'
+#'
+#' @examples
+#' data(data.scaler)
+#' print(data.scaler)
+#'
+#' data.scaler <- load_scaler()
+#' print(data.scaler)
+#'
+#' @docType data
+#' @name data.scaler
+NULL
