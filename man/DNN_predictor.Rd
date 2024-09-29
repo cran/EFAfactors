@@ -42,10 +42,10 @@ An object of class \code{DNN_predictor} is a \code{list} containing the followin
 This function will invoke a pre-trained deep neural network that can reliably
 perform the task of determining the number of factors. The maximum number of
 factors that the network can discuss is 10. The DNN model is implemented in Python
-and trained on PyTorch (https://download.pytorch.org/whl/cu118) with
+and trained on PyTorch (https://pytorch.org/) with
 CUDA 11.8 for acceleration. After training, the DNN was saved as a \code{DNN.onnx}
 file. The \emph{DNN_predictor} function performs inference by loading the \code{DNN.onnx}
-file in both Python and R environments. Therefore, please note that Python (suggested >= 3.10) and the 
+file in both Python and R environments. Therefore, please note that Python (suggested >= 3.10) and the
 libraries \code{numpy} and \code{onnxruntime} are required.
 
 To run this function, Python is required, along with the installation of numpy and onnxruntime. See more in details.

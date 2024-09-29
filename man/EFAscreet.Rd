@@ -4,11 +4,24 @@
 \alias{EFAscreet}
 \title{Scree Plot}
 \usage{
-EFAscreet(response, cor.type = "pearson", use = "pairwise.complete.obs")
+EFAscreet(
+  response,
+  fa = "pc",
+  nfact = 1,
+  cor.type = "pearson",
+  use = "pairwise.complete.obs"
+)
 }
 \arguments{
 \item{response}{A required \code{N} × \code{I} matrix or data.frame consisting of the responses of \code{N} individuals
 to \code{I} items.}
+
+\item{fa}{A string that determines the method used to obtain eigenvalues. If 'pc', it represents
+Principal Component Analysis (PCA); if 'fa', it represents Principal Axis Factoring (a widely
+used Factor Analysis method; @seealso \code{\link[EFAfactors]{factor.analysis}};
+Auerswald & Moshagen, 2019). (Default = 'pc')}
+
+\item{nfact}{A numeric value that specifies the number of factors to extract, only effective when \code{fa = 'fa'}. (Default = 1)}
 
 \item{cor.type}{A character string indicating which correlation coefficient (or covariance) is to be computed. One of "pearson" (default),
 "kendall", or "spearman". @seealso \link[stats]{cor}.}

@@ -133,10 +133,16 @@ PA <- function(response, fa="pc", n.iter=100, type = "quant", nfact=1, quant=0.9
 
   eigen.sim <- matrix(0, nrow=n.iter, ncol=I)
 
-  for (iii in 1:n.iter) {
-    cor.y <- cor(matrix(apply(response, 2, function(y) sample(y, N, replace = TRUE)), ncol = I), method = cor.type, use = use)
-    eigen.sim[iii,] <- eigen(cor.y)$values
+  for (it in 1:n.iter) {
+    response.temp <- sampleResponse(response, N, I)
+    if(fa == "pc"){
+      cor.y <- cor(response.temp, method = cor.type, use = use)
+      eigen.sim[it,] <- eigen(cor.y)$values
+    }else{
+      eigen.sim[it,] <- factor.analysis(response.temp, nfact=nfact, cor.type=cor.type, use = use)$eigen.value
+    }
   }
+
   eigen.quant <- apply(eigen.sim, 2, quantile, probs=quant)
   eigen.mean <- colMeans(eigen.sim)
 

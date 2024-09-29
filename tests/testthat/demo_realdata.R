@@ -1,22 +1,21 @@
 # library(EFAfactors)
-#
-# set.seed(123)
-# data(data.bfi)
-#
-# response <- as.matrix(data.bfi[, 1:25]) ## loading data
-# response <- as.matrix(na.omit(response)) ## Remove samples with NA/missing values
-#
-# ## Transform the scores of reverse-scored items to normal scoring
-# response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
-#
-# FF.obj <- FF(response)
-#
+
+set.seed(222)
+data(data.bfi)
+
+response <- as.matrix(data.bfi[, 1:25]) ## loading data
+response <- as.matrix(na.omit(response)) ## Remove samples with NA/missing values
+
+## Transform the scores of reverse-scored items to normal scoring
+response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
+
 # CD.obj <- CD(response)
-#
+# FF.obj <- FF(response)
+
 # Hull.obj <- Hull(response)
 # DNN.obj <- DNN_predictor(response)
 # EKC.obj <- EKC(response)
-# PA.obj <- PA(response)
+# PA.obj <- PA(response, fa = "fa", nfact = 1)
 #
 # CDF.obj <- CDF(response)
 #

@@ -12,6 +12,11 @@
 #'
 #' @param response A required \code{N} × \code{I} matrix or data.frame consisting of the responses of \code{N} individuals
 #'          to \code{I} items.
+#' @param fa A string that determines the method used to obtain eigenvalues. If 'pc', it represents
+#'           Principal Component Analysis (PCA); if 'fa', it represents Principal Axis Factoring (a widely
+#'           used Factor Analysis method; @seealso \code{\link[EFAfactors]{factor.analysis}};
+#'           Auerswald & Moshagen, 2019). (Default = 'pc')
+#' @param nfact A numeric value that specifies the number of factors to extract, only effective when \code{fa = 'fa'}. (Default = 1)
 #' @param cor.type A character string indicating which correlation coefficient (or covariance) is to be computed. One of "pearson" (default),
 #'          "kendall", or "spearman". @seealso \link[stats]{cor}.
 #' @param use An optional character string giving a method for computing covariances in the presence of missing values. This
@@ -52,21 +57,26 @@
 #' @importFrom stats cor
 #'
 #' @export
-EFAscreet <- function(response, cor.type = "pearson", use = "pairwise.complete.obs"){
+EFAscreet <- function(response, fa = "pc", nfact = 1, cor.type = "pearson", use = "pairwise.complete.obs"){
 
   if(!any(rep(use, 5) == c("everything", "all.obs", "complete.obs", "na.or.complete", "pairwise.complete.obs")))
     stop("'use' must be one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete', or 'pairwise.complete.obs' !")
+
+  if(!any(rep(fa, 2) == c("pc", "fa")))
+    stop("'type' must be one of the strings 'fa' or 'pc' !")
 
   N <- dim(response)[1]
   I <- dim(response)[2]
   response <- scale(response)
 
-  cor.response <- cor(response, method = cor.type, use = use)
+  if(fa == "pc"){
+    cor.response <- cor(response, method = cor.type, use = use)
+    eigen.result <- eigen(cor.response)
+    eigen.value <- eigen.result$values
+  }else{
+    eigen.value <- as.vector(factor.analysis(response, nfact=nfact, cor.type=cor.type, use = use)$eigen.value)
+  }
 
-  eigen.result <- eigen(cor.response)
-  eigen.value <- eigen.result$values
-
-  nfact <- which(eigen.value < 1)[1] - 1
 
   EFAscreet.obj <- list(eigen.value=eigen.value)
   class(EFAscreet.obj) <- "EFAscreet"

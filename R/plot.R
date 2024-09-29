@@ -35,7 +35,7 @@
 #' }
 #'
 #' @importFrom grDevices gray.colors
-#' @importFrom graphics plot abline axis barplot legend lines mtext par pie points text
+#' @importFrom graphics plot abline axis barplot legend lines mtext par pie points text title
 #' @export
 plot.Hull <- function(x, ...) {
   obj <- x
@@ -48,8 +48,23 @@ plot.Hull <- function(x, ...) {
 
   index <- obj$index
   if(nfact != 0){
-    posi <- match(Hull.CFI, CFI)
-    # par(mar = c(5, 4, 6, 4))
+
+    posi <- c()
+    for(i in 1:length(Hull.CFI)){
+      for(j in 1:length(CFI)){
+        if(Hull.CFI[i] == CFI[j]){
+          if(!is.null(unique(posi)) && any(rep(j, length(posi)) == posi)){
+            next
+          }else{
+            posi <- c(posi, j)
+            break
+          }
+        }
+      }
+    }
+
+    par(mar = c(5, 4, 5, 2) + 0.1)  # c(bottom, left, top, right)
+
     plot(Hull.df, Hull.CFI,
          type = "o",
          xlab = "Degree of freedom (parameters)",
@@ -61,13 +76,12 @@ plot.Hull <- function(x, ...) {
     if(nfact >= 1)
       points(df[posi[1:which(posi - 1 == nfact)]], CFI[posi[1:which(posi - 1 == nfact)]], pch = 17, col = "blue")
 
-    axis(3, at = df, labels = c(0:(length(df)-1)), tick = TRUE)
-    mtext("Hull plot", side = 3, line = 4, cex = 1.5)
+    axis(3, at = df, labels = c(0:(length(df)-1)), line = 0, tick = TRUE)
+    title(main = "Hull Plot", line = 3.5)
     mtext("Number of Factors", side = 3, line = 2)
   }else{
     message("Hull exception !")
   }
-
 }
 
 #' Plot Comparison Data for Factor Analysis
@@ -194,7 +208,7 @@ plot.PA <- function(x, ...) {
   if(nfact >= 1)
     points(1:nfact, eigen.value[1:nfact], pch = 17, col = "blue")
 
-  legend("topright", legend = c("Actual Data", "Simulated Data"),
+  legend("topright", legend = c("Actual Eigenvalue", "Reference Eigenvalue"),
          col = c("blue", "red"), pch = c(17, 46), lty = 1:2)
   abline(h = 1, col = "black", lty = 2)
 
@@ -256,6 +270,7 @@ plot.EKC <- function(x, ...) {
 
   legend("topright", legend = c("Actual Eigenvalue", "Reference Eigenvalue"),
          col = c("blue", "red"), pch = c(17, 46), lty = 1:2)
+  abline(h = 1, col = "black", lty = 2)
 
 }
 
@@ -408,7 +423,7 @@ plot.EFAhclust <- function(x, ...) {
   obj <- x
 
   hc <- obj$hc
-  plot(hc, main = "Clusters of Items", xlab = "Items", ylab = "Distance")
+  plot(hc, main = "Clusters of Items", xlab = "Items", ylab = "Dissimilarity ")
 
 }
 
@@ -437,7 +452,7 @@ plot.DNN_predictor <- function(x, ...) {
                 col = gray.colors(ncol(probability)),
                 xlab = "Number of Factor",
                 ylab = "Probability",
-                main = "Probability Distribution of the Number of Factors",
+                main = "Deep Neural Network\nProbability Distribution of the Number of Factors",
                 ylim = c(0, max(probability) * 1.1),
                 las = 2)
 
@@ -493,7 +508,7 @@ plot.FF <- function(x, ...) {
                 col = gray.colors(ncol(probability)),
                 xlab = "Number of Factor",
                 ylab = "Probability",
-                main = "Probability Distribution of the Number of Factors",
+                main = "Factor Forest\nProbability Distribution of the Number of Factors",
                 ylim = c(0, max(probability) * 1.1),
                 las = 2)
 
@@ -549,7 +564,7 @@ plot.CDF <- function(x, ...) {
                 col = gray.colors(ncol(probability)),
                 xlab = "Number of Factor",
                 ylab = "Probability",
-                main = "Probability Distribution of the Number of Factors",
+                main = "Comparison Data Forest\nProbability Distribution of the Number of Factors",
                 ylim = c(0, max(probability) * 1.1),
                 las = 2)
 

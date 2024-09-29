@@ -17,6 +17,10 @@ generateDistributions <- function(suppliedData, I, Npop) {
     .Call(`_EFAfactors_generateDistributions`, suppliedData, I, Npop)
 }
 
+sampleResponse <- function(response, N, I) {
+    .Call(`_EFAfactors_sampleResponse`, response, N, I)
+}
+
 sortData <- function(Data, Distributions) {
     .Call(`_EFAfactors_sortData`, Data, Distributions)
 }

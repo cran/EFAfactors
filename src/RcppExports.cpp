@@ -68,6 +68,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// sampleResponse
+NumericMatrix sampleResponse(const NumericMatrix& response, int N, int I);
+RcppExport SEXP _EFAfactors_sampleResponse(SEXP responseSEXP, SEXP NSEXP, SEXP ISEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type response(responseSEXP);
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    Rcpp::traits::input_parameter< int >::type I(ISEXP);
+    rcpp_result_gen = Rcpp::wrap(sampleResponse(response, N, I));
+    return rcpp_result_gen;
+END_RCPP
+}
 // sortData
 Rcpp::NumericMatrix sortData(NumericMatrix Data, NumericMatrix Distributions);
 RcppExport SEXP _EFAfactors_sortData(SEXP DataSEXP, SEXP DistributionsSEXP) {
@@ -86,6 +99,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_EFAfactors_calculateData", (DL_FUNC) &_EFAfactors_calculateData, 5},
     {"_EFAfactors_calculateRMSE", (DL_FUNC) &_EFAfactors_calculateRMSE, 5},
     {"_EFAfactors_generateDistributions", (DL_FUNC) &_EFAfactors_generateDistributions, 3},
+    {"_EFAfactors_sampleResponse", (DL_FUNC) &_EFAfactors_sampleResponse, 3},
     {"_EFAfactors_sortData", (DL_FUNC) &_EFAfactors_sortData, 2},
     {NULL, NULL, 0}
 };

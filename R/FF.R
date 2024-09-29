@@ -146,7 +146,9 @@
 #' @importFrom mlr getTaskClassLevels
 #' @importFrom ParamHelpers makeParamSet makeNumericLearnerParam makeIntegerLearnerParam makeUntypedLearnerParam makeLogicalLearnerParam makeDiscreteLearnerParam
 #'
-FF <- function(response, cor.type = "pearson", use = "pairwise.complete.obs", vis=TRUE, plot = TRUE){
+FF <- function(response,
+               cor.type = "pearson", use = "pairwise.complete.obs",
+               vis=TRUE, plot = TRUE){
 
   if(!any(rep(use, 5) == c("everything", "all.obs", "complete.obs", "na.or.complete", "pairwise.complete.obs")))
     stop("'use' must be one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete', or 'pairwise.complete.obs' !")
@@ -158,7 +160,7 @@ FF <- function(response, cor.type = "pearson", use = "pairwise.complete.obs", vi
   features <- extractor.feature.FF(response, cor.type=cor.type, use=use)
   names(features)[2] <- "p"
 
-  ddpcr::quiet(pa <- PA(response, fa="fa", n.iter = 20, plot = FALSE))
+  ddpcr::quiet(pa <- PA(response, fa="pc", n.iter = 100, plot = FALSE))
   pa_solution <- pa$nfact
   ekc <- EKC(response, cor.type = cor.type, use=use, vis = FALSE, plot = FALSE)$nfact
   cd <- CD(response, nfact.max = 8, use = use, vis = FALSE, plot = FALSE)$nfact

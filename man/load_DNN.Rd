@@ -2,7 +2,7 @@
 % Please edit documentation in R/load.R
 \name{load_DNN}
 \alias{load_DNN}
-\title{Load the Pre-Trained Deep Neural Network (DNN)}
+\title{Load the Trained Deep Neural Network (DNN)}
 \usage{
 load_DNN()
 }

@@ -16,6 +16,11 @@
 #'
 #' @param response A required \code{N} × \code{I} matrix or data.frame consisting of the responses of \code{N} individuals
 #'          to \code{I} items.
+#' @param fa A string that determines the method used to obtain eigenvalues in PA. If 'pc', it represents
+#'           Principal Component Analysis (PCA); if 'fa', it represents Principal Axis Factoring (a widely
+#'           used Factor Analysis method; @seealso \code{\link[EFAfactors]{factor.analysis}};
+#'           Auerswald & Moshagen, 2019). (Default = 'pc')
+#' @param nfact A numeric value that specifies the number of factors to extract, only effective when \code{fa = 'fa'}. (Default = 1)
 #' @param cor.type A character string indicating which correlation coefficient (or covariance) is to be computed. One of "pearson" (default),
 #'          "kendall", or "spearman". @seealso \link[stats]{cor}.
 #' @param use an optional character string giving a method for computing covariances in the presence of missing values. This
@@ -102,13 +107,14 @@
 #' @importFrom psych fa
 #' @importFrom ddpcr quiet
 Hull <- function(response,
+                 fa = "pc", nfact = 1,
                  cor.type = "pearson", use = "pairwise.complete.obs",
                  vis = TRUE, plot = TRUE) {
 
   response <- scale(response)
   cor.response <- cor(response, method = cor.type, use = use)
 
-  pa <- PA(response, cor.type = cor.type, use=use, vis = FALSE, plot = FALSE)
+  pa <- PA(response, fa = fa, nfact = nfact, cor.type = cor.type, use=use, vis = FALSE, plot = FALSE)
   nfact.max <- pa$nfact + 1
   if (nfact.max == 0) return(0)
 

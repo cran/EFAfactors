@@ -5,7 +5,7 @@
 \alias{data.datasets}
 \title{Subset Dataset for Training the Pre-Trained Deep Neural Network (DNN)}
 \format{
-A 10,000×55 matrix, where the first 54 columns represent feature values and
+A 1,000×55 matrix, where the first 54 columns represent feature values and
 the last column represents the labels, which correspond to the number of factors associated with the features.
 }
 \description{

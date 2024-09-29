@@ -51,7 +51,7 @@
 #' \itemize{
 #'   \item \eqn{\lambda_{emp,i}}: The i-th empirical eigenvalue.
 #'   \item \eqn{\lambda_{sim,i}}: The i-th simulated eigenvalue.
-#'   \item p: The number of items or eigenvalues.
+#'   \item \eqn{p}: The number of items or eigenvalues.
 #' }
 #' . This step produces two RMSEs, corresponding to the different numbers of latent factors.
 #'

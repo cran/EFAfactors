@@ -6,7 +6,7 @@
 \usage{
 factor.analysis(
   data,
-  nfact = 0,
+  nfact = 1,
   iter.max = 1000,
   criterion = 0.001,
   cor.type = "pearson",
@@ -17,8 +17,7 @@ factor.analysis(
 \item{data}{A data.frame or matrix of response If the matrix is square, it is assumed to
 be a correlation matrix. Otherwise, correlations (with pairwise deletion) will be computed.}
 
-\item{nfact}{The number of factors to extract. If set to 0, the number of factors will be equal
-to the number of variables (dimensions) in the data.}
+\item{nfact}{The number of factors to extract. (default = 1)}
 
 \item{iter.max}{The maximum number of iterations for the factor extraction process. Default is 1000.}
 
@@ -60,22 +59,22 @@ Step 2. **Factor Extraction by Iteratoin**:
    - Initial Communalities:
      Compute the initial communalities as the squared multiple correlations:
      \deqn{H_{i(t)}^2 = R_{ii(t)}}
-     where \eqn{H_{i(t)}^2} is the communality of i-th item in the \( t \)-th iteration, and \eqn{R_{ii(t)}} is the i-th
-     diagonal element of the correlation matrix in the \( t \)-th iteration.
+     where \eqn{H_{i(t)}^2} is the communality of i-th item in the \eqn{t}-th iteration, and \eqn{R_{ii(t)}} is the i-th
+     diagonal element of the correlation matrix in the \eqn{t}-th iteration.
 
    - Extract Factors and Update Communalities:
      \deqn{\Lambda_{ij} = \sqrt{\lambda_j} \times v_{ij}}
      \deqn{H_{i(t+1)}^2 = \sum_j \Lambda_{ij}^2}
      \deqn{R_{ii(t+1)} = H_{i(t+1)}^2}
      where \eqn{\Lambda_{ij}} represents the j-th factor loading for the i-th item, \eqn{\lambda_j} is the j-th
-     eigenvalue, \eqn{H_{i(t+1)}^2} is the communality of i-th item in the \( t+1 \)-th iteration, and \eqn{v_{ij}} is
+     eigenvalue, \eqn{H_{i(t+1)}^2} is the communality of i-th item in the \eqn{t+1}-th iteration, and \eqn{v_{ij}} is
      the j-th value of the i-th item in the eigen vector matrix \eqn{\mathbf{v}}.
 
 Step 3. **Iterative Refinement**:
 
    - Calculate the Change between \eqn{\mathbf{H}_{t}^2} and \eqn{\mathbf{H}_{t+1}^2}:
      \deqn{\Delta H_i^2 = \lvert H_{i(t+1)}^2 - H_{i(t)}^2 \lvert}
-     where \eqn{\Delta H_i^2} represents the change in communalities between iterations \( t \) and \( t+1 \).
+     where \eqn{\Delta H_i^2} represents the change in communalities between iterations \eqn{t} and \eqn{t+1}.
 
    - Convergence Criterion:
      Continue iterating until the change in communalities is less than the specified criterion \eqn{criterion}:

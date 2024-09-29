@@ -125,7 +125,7 @@ extractor.feature.FF <- function(response, cor.type = "pearson", use = "pairwise
   Kolm <- ineq::ineq(lower.tri(dat_cor), type = "Kolm")
 
   # parallel analysis
-  fa_eigval <- factor.analysis(response, nfact = 1, iter.max = 1000,
+  fa_eigval <- factor.analysis(response, nfact = 1, iter.max = 100,
                                criterion = 0.001, cor.type = cor.type, use = use)$eigen.value
 
   # setting missing eigenvalues to -1000
