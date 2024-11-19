@@ -1,9 +1,9 @@
-f08688f85019fa2b7e9faf85f082b312 *DESCRIPTION
+503af5c24654b31c8df6cd7ef278fefa *DESCRIPTION
 52bbbd997edace157e89f8caceef7649 *NAMESPACE
-bc43ad2afb8322cbffd6b15ce80d7cdc *NEWS.md
+14087fdb8247a959d0ef76ef09bdfdd9 *NEWS.md
 2400e185f2b0c7029bb4a93ef97eb7d9 *R/CD.R
 8dc60449bfafc89ed7c8875c953688b2 *R/CDF.R
-da6ec4e87c3aa6994b000f3c83cbc788 *R/DNN_predictor.R
+5b44000d4f6e87378edb9cbe4b89a986 *R/DNN_predictor.R
 a4cf4a226c9d8eddcd09c8b1224fd80b *R/EFAhclust.R
 c9e88eaed4738e15ccdd75ad36c6f099 *R/EFAindex.R
 f4f29d44c198e9e69b8de4fc42c706dd *R/EFAkmeans.R
@@ -11,9 +11,9 @@ f4f29d44c198e9e69b8de4fc42c706dd *R/EFAkmeans.R
 e0dc30c98ca86c69efb9ff4785cdb6b3 *R/EFAsim.data.R
 19f3c088ec66adb0bada81f38d85c9bd *R/EFAvote.R
 9ed52cb1c67a838e0fad195ae38e8cc7 *R/EKC.R
-11879f4c9172df195c165da47016fc7f *R/FF.R
+6ad0e908688df88561f224a302e6e3a3 *R/FF.R
 0d462e68d7c98913753e01be02848176 *R/GenData.R
-8f2f6147561ff026d79a8c0f2b1cce22 *R/Hull.R
+8148feed6176171361eb2bb72b7edf6e *R/Hull.R
 839411b9ba8892d4debdee2d3be3d28b *R/KGC.R
 fbd3b1e43506beeb355a178bab83b67a *R/PA.R
 b90bbbd1b0231d560e02b03da009c61b *R/RcppExports.R
@@ -39,7 +39,7 @@ bac46ac88419ff9c81abf8f5b1b9b1da *data/data.bfi.rda
 e87c268783fb1607d99f0392ab03f9cb *inst/extdata/DNN.onnx
 281726666e5dc7c30d633931544011c0 *man/CD.Rd
 e4e935f70fc030d38ae684ce0057a1cf *man/CDF.Rd
-9846d85606e6f644362658fedc08fa2e *man/DNN_predictor.Rd
+0c262c88e6184d769db35b039444f89a *man/DNN_predictor.Rd
 b24b580affdbc910dffa90e09c8448c4 *man/EFAhclust.Rd
 31a9ef3c6031fce57fb3ad572e2db1c9 *man/EFAindex.Rd
 b3bd5ef56e02ca47d2163c3ff75a9492 *man/EFAkmeans.Rd
@@ -47,9 +47,9 @@ f29ae6fdb00188138d123e46ee343a69 *man/EFAscreet.Rd
 1c209d354bd7f534d7b64278bc0bc5d7 *man/EFAsim.data.Rd
 e20c1d96c75d6e0e5e4366343c46fdb8 *man/EFAvote.Rd
 289e75384ff864ff2eeac1605be2becc *man/EKC.Rd
-33d025cc3af16e1bf564ee4c4a494210 *man/FF.Rd
+908efacf6be31468fb7c9230de8f23c4 *man/FF.Rd
 882cfa1542fe4b82e99a42f875231151 *man/GenData.Rd
-e3279ea4a9d1faae259b6c71a17d8833 *man/Hull.Rd
+7a7702548a6240e6da9e086e1ad2eef3 *man/Hull.Rd
 0e8279e1754f2a35b3aaad734ebff15a *man/KGC.Rd
 4804bcf0b401faa1e2ef8df786cb04a2 *man/PA.Rd
 09419bad882a9aedaa03d228d8452df8 *man/af.softmax.Rd
@@ -99,6 +99,6 @@ a69711adee0b75b497d6c6fcc6076bef *src/calculateRMSE.cpp
 cbf21ae797845a3b38b77ba7e8859401 *src/generateDistributions.cpp
 718c51fafdcc7d2f1b5f56a15d6d9800 *src/sampleResponse.cpp
 dbe26151716ce80e1c4f1a20d8d4e781 *src/sortData.cpp
-0c3111b8a7605fc3635536940443cc65 *tests/building.R
-4d192e4a8c7f4aec32486ee05b2adbdb *tests/testthat/demo_realdata.R
-df21a8da6a73913a141174af0f9994d4 *tests/testthat/demo_simulate.R
+5a76808910fe848b06fad3b4c6036de4 *tests/building.R
+5b654905a01ada3d97dbd14e77ee90b6 *tests/testthat/demo_realdata.R
+517f634de3530d28fe8c7d3f875d95fd *tests/testthat/demo_simulate.R

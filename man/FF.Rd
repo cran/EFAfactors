@@ -48,12 +48,12 @@ model (Goretzko & Buhner, 2020; Goretzko, 2022).
 Each dataset was generated according to the following specifications:
 
 \itemize{
-  \item Factor number: \emph{F} ~ U(1,8)
-  \item Sample size: \emph{N} ~ (200,1000)
-  \item Number of variables per factor: \emph{vpf} ~ (3,10)
-  \item Factor correlation: \emph{fc} ~ U(0.0,0.4)
-  \item Primary loadings: \emph{pl} ~ (0.35,0.80)
-  \item Cross-loadings: \emph{cl} ~ (0.0,0.2)
+  \item Factor number: \emph{F} ~ U[1,8]
+  \item Sample size: \emph{N} ~ U[200,1000]
+  \item Number of variables per factor: \emph{vpf} ~ U[3,10]
+  \item Factor correlation: \emph{fc} ~ U[0.0,0.4]
+  \item Primary loadings: \emph{pl} ~ U[0.35,0.80]
+  \item Cross-loadings: \emph{cl} ~ U[0.0,0.2]
 }
 
 A population correlation matrix was created for each data set based on the following decomposition:

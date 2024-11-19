@@ -1,8 +1,8 @@
 Package: EFAfactors
 Type: Package
 Title: Determining the Number of Factors in Exploratory Factor Analysis
-Version: 1.1.0
-Date: 2024-09-29
+Version: 1.1.1
+Date: 2024-11-19
 Authors@R: c(person(given = "Haijiang", family = "Qin", role = c("aut", "cre", "cph"), email = "haijiang133@outlook.com"),
              person(given = "Lei", family = "Guo", role = c("aut", "cph"), email = "happygl1229@swu.edu.cn"))
 Maintainer: Haijiang Qin <haijiang133@outlook.com>
@@ -24,7 +24,8 @@ Collate: 'CD.R' 'CDF.R' 'data.bfi.R' 'data.datasets.R' 'data.scaler.R'
         'KGC.R' 'load.R' 'model.xgb.R' 'normalizor.R' 'PA.R' 'plot.R'
         'print.R' 'RcppExports.R' 'af.softmax.R' 'utils.R' 'zzz.R'
 Repository: CRAN
-Packaged: 2024-09-29 17:05:12 UTC; Haiji
+URL: https://haijiangqin.com/EFAfactors/
+Packaged: 2024-11-19 07:48:33 UTC; Haiji
 Author: Haijiang Qin [aut, cre, cph],
   Lei Guo [aut, cph]
-Date/Publication: 2024-09-29 22:40:14 UTC
+Date/Publication: 2024-11-19 08:00:02 UTC

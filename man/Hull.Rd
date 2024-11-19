@@ -58,6 +58,22 @@ ine the number of common factors in factor analysis. This method is similar to
 non-graphical variants of Cattell's scree plot but relies on goodness-of-fit indices
 relative to the model degrees of freedom. The Hull method finds the optimal number of
 factors by following these steps:
+
+\enumerate{
+  \item Calculate the goodness-of-fit index (CFI)
+        and model degrees of freedom (df; Lorenzo-Seva & Timmerman, 2011; \eqn{df = I × F - 0.5 × F * (F - 1)},
+        \eqn{I} is the number of items, and \eqn{F} is the number of factors)
+        for models with an increasing number of factors, up to a prespecified maximum,
+        which is equal to the \item{nfact} of \link[EFAfactors]{PA} method. the GOF will always be
+        Comparative Fit Index (CFI), for it performs best under various conditions than other GOF (Auerswald & Moshagen, 2019;
+        Lorenzo-Seva & Timmerman, 2011), such as RMSEA and SRMR. @seealso \link[EFAfactors]{EFAindex}
+  \item Identify and exclude solutions that are less complex (with fewer factors)
+        but have a higher fit index.
+  \item Further exclude solutions if their fit indices fall below the line connecting
+        adjacent viable solutions.
+  \item Determine the number of factors where the ratio of the difference in
+        goodness-of-fit indices to the difference in degrees of freedom is maximized.
+}
 }
 \examples{
 library(EFAfactors)

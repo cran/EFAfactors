@@ -1,4 +1,4 @@
-#
+# 
 # library(rstudioapi)
 # script_path <- getActiveDocumentContext()$path
 # print(script_path)
@@ -40,7 +40,7 @@
 # which(rownames(pack) == "EFAfactors")
 
 # library(cranlogs)
-# downloads <- cran_downloads(packages = "EFAfactors", from = "2024-02-04", to = "2024-09-06")
+# downloads <- cran_downloads(packages = "EFAfactors", from = "2024-01-01", to = "2024-11-19")
 # print(downloads)
 # sum(downloads$count)
 

@@ -48,7 +48,7 @@ file. The \emph{DNN_predictor} function performs inference by loading the \code{
 file in both Python and R environments. Therefore, please note that Python (suggested >= 3.10) and the
 libraries \code{numpy} and \code{onnxruntime} are required.
 
-To run this function, Python is required, along with the installation of numpy and onnxruntime. See more in details.
+To run this function, Python is required, along with the installation of \code{numpy} and \code{onnxruntime}. See more in Details and Note.
 }
 \details{
 Due to the improved performance of deep learning models with larger datasets (Chen et al., 2017),
@@ -58,12 +58,12 @@ Each dataset was generated following the methods described by Auerswald & Moshag
 with the following specifications:
 
 \itemize{
-  \item Factor number: \emph{F} ~ U(1,10)
-  \item Sample size: \emph{N} ~ (100,1000)
-  \item Number of variables per factor: \emph{vpf} ~ (3,20)
-  \item Factor correlation: \emph{fc} ~ U(0.0,0.4)
-  \item Primary loadings: \emph{pl} ~ (0.35,0.80)
-  \item Cross-loadings: \emph{cl} ~ (-0.2,0.2)
+  \item Factor number: \emph{F} ~ U[1,10]
+  \item Sample size: \emph{N} ~ U[100,1000]
+  \item Number of variables per factor: \emph{vpf} ~ [3,20]
+  \item Factor correlation: \emph{fc} ~ U[0.0,0.4]
+  \item Primary loadings: \emph{pl} ~ U[0.35,0.80]
+  \item Cross-loadings: \emph{cl} ~ U[-0.2,0.2]
 }
 
 A population correlation matrix was created for each data set based on the following decomposition:
