@@ -76,7 +76,6 @@ EFAkmeans <- function(response, nfact.max = 10, plot=TRUE){
   response <- as.matrix(response)
   tresponse <- t(response)
 
-  # set.seed(123)
   k.values <- 2:min(nfact.max, ncol(response)-1)
   wss <- c(kmeans(tresponse, centers = 1)$tot.withinss,
                   sapply(k.values, function(k) {

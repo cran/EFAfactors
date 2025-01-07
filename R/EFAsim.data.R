@@ -38,8 +38,6 @@
 #'          If a numeric value is provided, it will be used as the 'b' parameter of the beta distribution.
 #'          If NULL, a random integer between 1 and 10 will be used. (default = NULL)
 #' @param vis A logical value indicating whether to print process information. (default = TRUE)
-#' @param seed A numeric or NULL specifying the random seed. If a numeric value is provided, it will be used as the seed.
-#'             If NULL, the current timestamp will be used. (default = NULL)
 #'
 #'
 #' @return An object of class \code{EFAdata} is a \code{list} containing the following components:
@@ -78,7 +76,7 @@
 #'
 #' ## Run EFAsim.data function with default parameters.
 #' data.obj <- EFAsim.data(nfact = 3, vpf = 5, N=500, distri="normal", fc="R", pl="R", cl="R",
-#'                      low.vpf = 5, up.vpf = 15, a = NULL, b = NULL, vis = TRUE, seed = NULL)
+#'                         low.vpf = 5, up.vpf = 15, a = NULL, b = NULL, vis = TRUE)
 #'
 #' head(data.obj$loadings)
 #'
@@ -96,15 +94,9 @@ EFAsim.data <- function(nfact, vpf, N=500,
                      distri="normal", fc="R", pl="R", cl="R",
                      low.vpf = 5, up.vpf = 15,
                      a = NULL, b = NULL,
-                     vis = TRUE, seed = NULL){
+                     vis = TRUE){
 
-  input.check(nfact, vpf, N, distri, fc, pl, cl, low.vpf, up.vpf, a, b, vis, seed)
-
-  if(is.null(seed)){
-    set.seed(as.numeric(Sys.time()))
-  }else{
-    set.seed(seed)
-  }
+  input.check(nfact, vpf, N, distri, fc, pl, cl, low.vpf, up.vpf, a, b, vis)
 
   if(pl == "H"){
     p.up <- 0.80; p.low=0.65
@@ -252,7 +244,7 @@ EFAsim.data <- function(nfact, vpf, N=500,
   return(EFAdata.obj)
 }
 
-input.check <- function(nfact, vpf, N, distri, fc, pl, cl, low.vpf, up.vpf, a, b, vis, seed){
+input.check <- function(nfact, vpf, N, distri, fc, pl, cl, low.vpf, up.vpf, a, b, vis){
 
   if(!is.numeric(nfact))
     stop("'nfact' must be a numeric !")
@@ -330,7 +322,4 @@ input.check <- function(nfact, vpf, N, distri, fc, pl, cl, low.vpf, up.vpf, a, b
 
   if(!is.logical(vis))
     stop("'vis' must be logical (TRUE or FALSE) !")
-
-  if(!is.null(seed) && !is.numeric(seed))
-    stop("'seed' must be NULL or numeric !")
 }

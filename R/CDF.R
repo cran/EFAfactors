@@ -151,7 +151,7 @@ CDF <- function(response,
   datasets <- NULL
   for(nfact in 1:nfact.max){
     Pop <- GenData(response, nfact = nfact, N.pop = N.pop, cor.type = cor.type, use = use)
-    
+
     datasets.nfact <- NULL
     for(ns in 1:N.Samples){
       if(vis)

@@ -46,7 +46,7 @@ and trained on PyTorch (https://pytorch.org/) with
 CUDA 11.8 for acceleration. After training, the DNN was saved as a \code{DNN.onnx}
 file. The \emph{DNN_predictor} function performs inference by loading the \code{DNN.onnx}
 file in both Python and R environments. Therefore, please note that Python (suggested >= 3.10) and the
-libraries \code{numpy} and \code{onnxruntime} are required.
+libraries \code{numpy} and \code{onnxruntime} are required. @seealso \link[EFAfactors]{check_python_libraries}
 
 To run this function, Python is required, along with the installation of \code{numpy} and \code{onnxruntime}. See more in Details and Note.
 }
@@ -136,10 +136,15 @@ or
 
    \code{ModuleNotFoundError: No module named 'onnxruntime'}
 
-this means that the \code{numpy} or \code{onnxruntime} library is missing from your Python environment. If you are using Windows or macOS,
-please run the command \code{pip install numpy} or \code{pip install onnxruntime} in Command Prompt or Windows PowerShell (Windows), or Terminal (macOS).
-If you are using Linux, please ensure that \code{pip} is installed and use the command \code{pip install numpy} or
-\code{pip install onnxruntime} to install the missing libraries.
+this means that the \code{numpy} or \code{onnxruntime} library is missing from your Python environment.
+The \link[EFAfactors]{check_python_libraries} function can help you install these two dependency libraries. @seealso \link[EFAfactors]{check_python_libraries}
+
+Of course, you can also choose not to use the \link[EFAfactors]{check_python_libraries} function. You can
+directly install the \code{numpy} or \code{onnxruntime} library using the appropriate commands.
+If you are using Windows or macOS, please run the command \code{pip install numpy} or \code{pip install onnxruntime}
+in Command Prompt or Windows PowerShell (Windows), or Terminal (macOS). If you are using Linux, please ensure that
+\code{pip} is installed and use the command \code{pip install numpy} or \code{pip install onnxruntime} to install
+the missing libraries.
 }
 \references{
 Auerswald, M., & Moshagen, M. (2019). How to determine the number of factors to retain in exploratory factor analysis: A comparison of extraction methods under realistic conditions. Psychological methods, 24(4), 468-491. https://doi.org/10.1037/met0000200.

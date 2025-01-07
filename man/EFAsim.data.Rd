@@ -16,8 +16,7 @@ EFAsim.data(
   up.vpf = 15,
   a = NULL,
   b = NULL,
-  vis = TRUE,
-  seed = NULL
+  vis = TRUE
 )
 }
 \arguments{
@@ -65,9 +64,6 @@ If a numeric value is provided, it will be used as the 'b' parameter of the beta
 If NULL, a random integer between 1 and 10 will be used. (default = NULL)}
 
 \item{vis}{A logical value indicating whether to print process information. (default = TRUE)}
-
-\item{seed}{A numeric or NULL specifying the random seed. If a numeric value is provided, it will be used as the seed.
-If NULL, the current timestamp will be used. (default = NULL)}
 }
 \value{
 An object of class \code{EFAdata} is a \code{list} containing the following components:
@@ -102,7 +98,7 @@ library(EFAfactors)
 
 ## Run EFAsim.data function with default parameters.
 data.obj <- EFAsim.data(nfact = 3, vpf = 5, N=500, distri="normal", fc="R", pl="R", cl="R",
-                     low.vpf = 5, up.vpf = 15, a = NULL, b = NULL, vis = TRUE, seed = NULL)
+                        low.vpf = 5, up.vpf = 15, a = NULL, b = NULL, vis = TRUE)
 
 head(data.obj$loadings)
 

@@ -1,6 +1,7 @@
-# 
+
 # library(rstudioapi)
-# script_path <- getActiveDocumentContext()$path
+#
+# script_path <- rstudioapi::getActiveDocumentContext()$path
 # print(script_path)
 # working_directory <- dirname(dirname(script_path))
 # setwd(working_directory)

@@ -144,7 +144,6 @@
 #' @importFrom BBmisc convertDataFrameCols
 #' @importFrom stats cor predict sd
 #' @importFrom mlr getTaskClassLevels
-#' @importFrom ParamHelpers makeParamSet makeNumericLearnerParam makeIntegerLearnerParam makeUntypedLearnerParam makeLogicalLearnerParam makeDiscreteLearnerParam
 #'
 FF <- function(response,
                cor.type = "pearson", use = "pairwise.complete.obs",

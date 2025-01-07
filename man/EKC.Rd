@@ -57,7 +57,7 @@ The upper bound of this distribution serves as the reference eigenvalue for the 
 , which is determined by N individuals and I items. For subsequent eigenvalues, adjustments are
 made based on the variance explained by previous factors. The j-th reference eigenvalue is:
 
-\deqn{\lambda_{j,ref} = \max \left( \frac{I - \sum_{i=0}^{j-1} \lambda_j}{I - j + 1} \left[ 1 + \sqrt{\frac{I}{N}} \right]^2, 1 \right)}
+\deqn{\lambda_{j,ref} = \max \left[ \frac{I - \sum_{i=0}^{j-1} \lambda_i}{I - j + 1} \left( 1 + \sqrt{\frac{I}{N}} \right)^2, 1 \right]}
 
 The j-th reference eigenvalue is reduced according to the magnitude of earlier eigenvalues
 since higher previous values mean less unexplained variance remains. As in the original
