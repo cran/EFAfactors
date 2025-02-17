@@ -68,9 +68,9 @@
 #'
 #' ## Run extractor.feature.FF function with default parameters.
 #' \donttest{
-#'  features <- extractor.feature.FF(response)
+#' features <- extractor.feature.FF(response)
 #'
-#'  print(features)
+#' print(features)
 #'
 #'
 #' }
@@ -78,10 +78,7 @@
 #'
 #' @export
 #'
-#' @importFrom ineq ineq
 #' @importFrom psych smc
-#' @importFrom psych KMO
-#' @importFrom ddpcr quiet
 #' @importFrom ineq ineq
 #' @importFrom stats cor sd
 
@@ -120,7 +117,7 @@ extractor.feature.FF <- function(response, cor.type = "pearson", use = "pairwise
   avgcom <- mean(psych::smc(dat_cor))
   det <- det(dat_cor)
 
-  KMO <- psych::KMO(dat_cor)$MSA
+  KMO <- KMO(dat_cor)$MSA
   Gini <- ineq::ineq(lower.tri(dat_cor), type = "Gini")
   Kolm <- ineq::ineq(lower.tri(dat_cor), type = "Kolm")
 
@@ -143,4 +140,27 @@ extractor.feature.FF <- function(response, cor.type = "pearson", use = "pairwise
 
   return(features)
 
+}
+
+#' @importFrom stats cov2cor
+KMO <- function (r) {
+  cl <- match.call()
+  Q <- tryCatch({
+    solve(r)
+  }, error = function(e){
+    r
+  })
+  S2 <- diag(1/diag(Q))
+  IC <- S2 %*% Q %*% S2
+  Q <- Image <- cov2cor(Q)
+  diag(Q) <- 0
+  diag(r) <- 0
+  sumQ2 <- sum(Q^2)
+  sumr2 <- sum(r^2)
+  MSA <- sumr2/(sumr2 + sumQ2)
+  MSAi <- colSums(r^2)/(colSums(r^2) + colSums(Q^2))
+  results <- list(MSA = MSA, MSAi = MSAi, Image = Image, ImCov = IC,
+                  Call = cl)
+  class(results) <- c("psych", "KMO")
+  return(results)
 }

@@ -79,17 +79,17 @@
 #'
 #' ## Run EFAhclust function with default parameters.
 #' \donttest{
-#'  EFAhclust.obj <- EFAhclust(response)
+#' EFAhclust.obj <- EFAhclust(response)
 #'
-#'  plot(EFAhclust.obj)
+#' plot(EFAhclust.obj)
 #'
-#'  ## Get the heights.
-#'  heights <- EFAhclust.obj$heights
-#'  print(heights)
+#' ## Get the heights.
+#' heights <- EFAhclust.obj$heights
+#' print(heights)
 #'
-#'  ## Get the nfact retained by SOD
-#'  nfact.SOD <- EFAhclust.obj$nfact.SOD
-#'  print(nfact.SOD)
+#' ## Get the nfact retained by SOD
+#' nfact.SOD <- EFAhclust.obj$nfact.SOD
+#' print(nfact.SOD)
 #'
 #'
 #' }

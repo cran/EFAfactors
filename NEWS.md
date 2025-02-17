@@ -1,3 +1,9 @@
+# EFAfactors 1.2.1
+
+-   Change  - Optimized the `CDF` function code to improve its execution efficiency.
+-   Fixed   - Resolved the loop error in `GenData` when the number of questions is very large.
+-   Fixed   - Fixed `src/Makevars` to achieve better portability.
+
 # EFAfactors 1.2.0
 
 -   Fixed   -  The function, originally dependent on the R package `ParamHelpers`, has been rewritten based on version 1.14.1 to support the `FF` function and no longer depends on the R package `ParamHelpers`.

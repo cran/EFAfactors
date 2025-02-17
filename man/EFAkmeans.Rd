@@ -57,17 +57,17 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 ## Run EFAkmeans function with default parameters.
 \donttest{
- EFAkmeans.obj <- EFAkmeans(response)
+EFAkmeans.obj <- EFAkmeans(response)
 
- plot(EFAkmeans.obj)
+plot(EFAkmeans.obj)
 
- ## Get the heights.
- wss <- EFAkmeans.obj$wss
- print(wss)
+## Get the heights.
+wss <- EFAkmeans.obj$wss
+print(wss)
 
- ## Get the nfact retained by SOD
- nfact.SOD <- EFAkmeans.obj$nfact.SOD
- print(nfact.SOD)
+## Get the nfact retained by SOD
+nfact.SOD <- EFAkmeans.obj$nfact.SOD
+print(nfact.SOD)
 
 
 }

@@ -84,20 +84,20 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 ## Run EKC function with default parameters.
 \donttest{
- EKC.obj <- EKC(response)
+EKC.obj <- EKC(response)
 
- print(EKC.obj)
+print(EKC.obj)
 
- plot(EKC.obj)
+plot(EKC.obj)
 
- ## Get the eigen.value, eigen.ref and  nfact results.
- eigen.value <- EKC.obj$eigen.value
- eigen.ref <- EKC.obj$eigen.ref
- nfact <- EKC.obj$nfact
+## Get the eigen.value, eigen.ref and  nfact results.
+eigen.value <- EKC.obj$eigen.value
+eigen.ref <- EKC.obj$eigen.ref
+nfact <- EKC.obj$nfact
 
- print(eigen.value)
- print(eigen.ref)
- print(nfact)
+print(eigen.value)
+print(eigen.ref)
+print(nfact)
 
 }
 

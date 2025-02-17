@@ -68,9 +68,9 @@
 #'
 #' ## Run extractor.feature.DNN function with default parameters.
 #' \donttest{
-#'  features <- extractor.feature.DNN(response)
+#' features <- extractor.feature.DNN(response)
 #'
-#'  print(features)
+#' print(features)
 #'
 #' }
 #'

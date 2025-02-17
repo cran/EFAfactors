@@ -91,20 +91,20 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 ## Run EKC function with default parameters.
 \donttest{
- Hull.obj <- Hull(response)
+Hull.obj <- Hull(response)
 
- print(Hull.obj)
+print(Hull.obj)
 
- plot(Hull.obj)
+plot(Hull.obj)
 
- ## Get the CFI, df and  nfact results.
- CFI <- Hull.obj$CFI
- df <- Hull.obj$df
- nfact <- Hull.obj$nfact
+## Get the CFI, df and  nfact results.
+CFI <- Hull.obj$CFI
+df <- Hull.obj$df
+nfact <- Hull.obj$nfact
 
- print(CFI)
- print(df)
- print(nfact)
+print(CFI)
+print(df)
+print(nfact)
 
 }
 

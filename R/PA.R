@@ -85,20 +85,20 @@
 #'
 #' ## Run PA function with default parameters.
 #' \donttest{
-#'  PA.obj <- PA(response)
+#' PA.obj <- PA(response)
 #'
-#'  print(PA.obj)
+#' print(PA.obj)
 #'
-#'  plot(PA.obj)
+#' plot(PA.obj)
 #'
-#'  ## Get the eigen.value, eigen.ref and  nfact results.
-#'  eigen.value <- PA.obj$eigen.value
-#'  eigen.ref <- PA.obj$eigen.ref
-#'  nfact <- PA.obj$nfact
+#' ## Get the eigen.value, eigen.ref and  nfact results.
+#' eigen.value <- PA.obj$eigen.value
+#' eigen.ref <- PA.obj$eigen.ref
+#' nfact <- PA.obj$nfact
 #'
-#'  print(eigen.value)
-#'  print(eigen.ref)
-#'  print(nfact)
+#' print(eigen.value)
+#' print(eigen.ref)
+#' print(nfact)
 #'
 #' }
 #'

@@ -52,18 +52,18 @@
 #'
 #' ## Run KGC function with default parameters.
 #' \donttest{
-#'  KGC.obj <- KGC(response)
+#' KGC.obj <- KGC(response)
 #'
-#'  print(KGC.obj)
+#' print(KGC.obj)
 #'
-#'  plot(KGC.obj)
+#' plot(KGC.obj)
 #'
-#'  ## Get the eigen.value, eigen.ref and  nfact results.
-#'  eigen.value <- KGC.obj$eigen.value
-#'  nfact <- KGC.obj$nfact
+#' ## Get the eigen.value, eigen.ref and  nfact results.
+#' eigen.value <- KGC.obj$eigen.value
+#' nfact <- KGC.obj$nfact
 #'
-#'  print(eigen.value)
-#'  print(nfact)
+#' print(eigen.value)
+#' print(nfact)
 #'
 #' }
 #'

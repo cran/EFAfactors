@@ -24,7 +24,7 @@
 #' library(EFAfactors)
 #'
 #' nfacts <- c(5, 5, 5, 6, 6, 4)
-#' names(nfacts) <- c("Hull", "CD", "PA", "EKC", "XGB", "DNN")
+#' names(nfacts) <- c("Hull", "CD", "PA", "EKC", "FF", "DNN")
 #'
 #' EFAvote.obj <- EFAvote(votes = nfacts)
 #'

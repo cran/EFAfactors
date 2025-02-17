@@ -2,12 +2,12 @@
 #
 # # set.seed(123)  ## 423 for example R R R nn
 #
-# NF <- c(4)
-# FC <- c(0)
-# VPF <- c(4)
-# PL <- c("L")
+# NF <- c(10)
+# FC <- c(0.25)
+# VPF <- c(16)
+# PL <- c("H")
 # CL <- c("L")
-# N <- c(100)
+# N <- c(1000)
 # distribution <- "normal"
 #
 # trials.length <- length(NF) * length(FC) * length(VPF) * length(PL) * length(CL) * length(N)
@@ -67,12 +67,10 @@
 #
 #       # FF.obj <- FF(response)
 #       # CD.obj <- CD(response)
-#       # CDF.obj <- CDF(response)
+#       CDF.obj <- CDF(response)
 #
 #       methods.names <- c("Hull", "CD", "PA", "EKC", "FF", "CDF","DNN")
-#
 #       retained.factors <- c(Hull.obj$nfact, CD.obj$nfact, PA.obj$nfact, EKC.obj$nfact, FF.obj$nfact, CDF.obj$nfact, DNN.obj$nfact)
-#
 #
 #       results.cur <- rbind(results.cur, (retained.factors == rep(NF.cur, length(methods.names))))
 #       results[paste0("F=", NF.cur), paste0("FC=", FC.cur), paste0("VPF=", VPF.cur),

@@ -56,9 +56,9 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 ## Run EFAscreet function with default parameters.
 \donttest{
- EFAscreet.obj <- EFAscreet(response)
+EFAscreet.obj <- EFAscreet(response)
 
- plot(EFAscreet.obj)
+plot(EFAscreet.obj)
 
 }
 

@@ -66,9 +66,9 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 ## Run EFAindex function with default parameters.
 \donttest{
- EFAindex.matrix <- EFAindex(response)
+EFAindex.matrix <- EFAindex(response)
 
- print(EFAindex.matrix)
+print(EFAindex.matrix)
 
 }
 

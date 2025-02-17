@@ -47,9 +47,9 @@
 #'
 #' ## Run EFAscreet function with default parameters.
 #' \donttest{
-#'  EFAscreet.obj <- EFAscreet(response)
+#' EFAscreet.obj <- EFAscreet(response)
 #'
-#'  plot(EFAscreet.obj)
+#' plot(EFAscreet.obj)
 #'
 #' }
 #'

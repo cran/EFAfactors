@@ -9,7 +9,9 @@
 #' @param response A required \code{N} × \code{I} matrix or data.frame consisting of the responses of \code{N} individuals
 #'          to × \code{I} items.
 #' @param num.trees the number of trees in the Random Forest. (default = 500) See details.
-#' @param mtry the maximum depth for each tree. (default = 13) See details.
+#' @param mtry the maximum depth for each tree, can be a number or a character (\code{"sqrt"}).
+#'          When \code{mtry = "sqrt"}, it means that the maximum depth of each tree will be determined by the square root of
+#'          the number of available features (converted to an integer by \link[base]{round}).default = \code{"sqrt"}. See details.
 #' @param nfact.max The maximum number of factors discussed by CD approach. (default = 10)
 #' @param N.pop Size of finite populations of simulating.. (default = 10,000)
 #' @param N.Samples Number of samples drawn from each population. (default = 500)
@@ -138,8 +140,9 @@
 #' @import ranger
 #' @importFrom ranger ranger
 #'
+#'
 CDF <- function(response,
-                num.trees = 500, mtry = 13,
+                num.trees = 500, mtry = "sqrt",
                 nfact.max=10, N.pop = 10000, N.Samples = 500,
                 cor.type = "pearson", use = "pairwise.complete.obs",
                 vis=TRUE, plot = TRUE){
@@ -148,36 +151,33 @@ CDF <- function(response,
   I <- dim(response)[2]
   response <- scale(as.matrix(response))
 
-  datasets <- NULL
-  for(nfact in 1:nfact.max){
+  features.empirical <- extractor.feature.FF(response, cor.type = cor.type, use = use)
+  feature_names <- colnames(features.empirical)
+  datasets <- matrix(0, nrow = nfact.max * N.Samples, ncol = length(feature_names) + 1)
+
+  for (nfact in 1:nfact.max) {
     Pop <- GenData(response, nfact = nfact, N.pop = N.pop, cor.type = cor.type, use = use)
-
-    datasets.nfact <- NULL
-    for(ns in 1:N.Samples){
-      if(vis)
-        cat("\rCDF is simulating data:", paste0("nfact=", sprintf("%2d", nfact), "/", nfact.max),
-            "-", paste0("N_rep=", sprintf("%4d", ns), "/", N.Samples))
-
-      data.cur <- Pop[sample(1:nrow(Pop), N, replace = TRUE), ]
-      datasets.cur <- cbind(extractor.feature.FF(data.cur, cor.type = cor.type, use = use), nfact)
-      datasets.nfact <- rbind(datasets.nfact, datasets.cur)
-    }
-    datasets <- rbind(datasets, datasets.nfact)
+    posi <- (nfact - 1) * N.Samples
+    datasets[(posi+1):((posi+N.Samples)), ] <-
+      t(sapply(1:N.Samples, function(ns) N.Samples.loop(ns, cor.type, use, Pop, N, posi, nfact, nfact.max, N.Samples, vis)))
+  }
+  if(vis){
+    cat("\n")
   }
 
+  datasets <- as.data.frame(datasets)
+  colnames(datasets) <- c(feature_names, "nfact")
   datasets$nfact <- factor(datasets$nfact)
-  fea.null <- c()
-  for(fea in 1:(ncol(datasets)-1)){
-    if(length(unique(datasets[, fea])) == 1)
-      fea.null <- c(fea.null, fea)
+
+  fea.null <- which(apply(datasets[, -ncol(datasets)], 2, function(col) length(unique(col)) == 1))
+  if (length(fea.null) > 0) {
+    datasets[, fea.null] <- NULL
   }
-  datasets[, fea.null] <- NULL
+  if(mtry == "sqrt")
+    mtry <- round(sqrt(ncol(datasets)))
 
   RF <- ranger(nfact ~ ., data = datasets, num.trees = num.trees, mtry = mtry, probability = TRUE)
-
-  features.empirical <- extractor.feature.FF(response, cor.type = cor.type, use = use)
   pred <- predict(RF, data = features.empirical)
-
   probability <- as.numeric(pred$predictions)
   nfact <- which.max(probability)[1]
 
@@ -191,4 +191,16 @@ CDF <- function(response,
   if(plot) plot(CDF.obj)
 
   return(CDF.obj)
+}
+
+N.Samples.loop <- function(ns, cor.type, use, Pop, N, posi, nfact, nfact.max, N.Samples, vis){
+  data.cur <- Pop[sample(1:nrow(Pop), N, replace = TRUE), ]
+  features <- extractor.feature.FF(data.cur, cor.type = cor.type, use = use)
+
+  if (vis) {
+    cat("\rCDF is simulating data:",
+        paste0("nfact=", sprintf("%2d", nfact), "/", nfact.max),
+        "-", paste0("N_rep=", sprintf("%4d", ns), "/", N.Samples))
+  }
+  return(unlist(c(features, nfact)))
 }

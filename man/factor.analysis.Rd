@@ -98,17 +98,17 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 ## Run factor.analysis function to extract 5 factors
 \donttest{
- PAF.obj <- factor.analysis(response, nfact = 5)
+PAF.obj <- factor.analysis(response, nfact = 5)
 
 
- ## Get the loadings, eigen.value and  H2 results.
- loadings <- PAF.obj$loadings
- eigen.value <- PAF.obj$eigen.value
- H2 <- PAF.obj$H2
+## Get the loadings, eigen.value and  H2 results.
+loadings <- PAF.obj$loadings
+eigen.value <- PAF.obj$eigen.value
+H2 <- PAF.obj$H2
 
- print(loadings)
- print(eigen.value)
- print(H2)
+print(loadings)
+print(eigen.value)
+print(H2)
 
 }
 

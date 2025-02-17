@@ -116,20 +116,20 @@
 #'
 #' ## Limit the maximum number of factors to 8, with populations set to 5000.
 #' \donttest{
-#' #CD.obj <- CD(response, nfact.max=8, N.pop = 5000)
-#' #
-#' #print(CD.obj)
-#' #
-#' ### CD plot
-#' #plot(CD.obj)
-#' #
-#' ### Get the RMSE.Eigs and nfact results.
-#' #RMSE.Eigs <- CD.obj$RMSE.Eigs
-#' #nfact <- CD.obj$nfact
-#' #
-#' #head(RMSE.Eigs)
-#' #print(nfact)
-#' #
+#' CD.obj <- CD(response, nfact.max=8, N.pop = 5000)
+#' 
+#' print(CD.obj)
+#' 
+#' ## CD plot
+#' plot(CD.obj)
+#' 
+#' ## Get the RMSE.Eigs and nfact results.
+#' RMSE.Eigs <- CD.obj$RMSE.Eigs
+#' nfact <- CD.obj$nfact
+#' 
+#' head(RMSE.Eigs)
+#' print(nfact)
+#' 
 #' }
 #'
 #'

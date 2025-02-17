@@ -94,8 +94,8 @@ response <- na.omit(response) ## Remove samples with NA/missing values
 ## Transform the scores of reverse-scored items to normal scoring
 response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
 \donttest{
-  data.simulated <- GenData(response, nfact = 1, N.pop = 10000)
-  head(data.simulated)
+data.simulated <- GenData(response, nfact = 1, N.pop = 10000)
+head(data.simulated)
 }
 
 

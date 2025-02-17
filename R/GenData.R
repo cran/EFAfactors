@@ -80,8 +80,8 @@
 #' ## Transform the scores of reverse-scored items to normal scoring
 #' response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
 #' \donttest{
-#'   data.simulated <- GenData(response, nfact = 1, N.pop = 10000)
-#'   head(data.simulated)
+#' data.simulated <- GenData(response, nfact = 1, N.pop = 10000)
+#' head(data.simulated)
 #' }
 #'
 #'
@@ -108,7 +108,7 @@ GenData <- function(response, nfact = 1, N.pop = 10000, Max.Trials = 5, lr = 1,
   } else {
     Target.Corr <- response
   }
-  Intermediate.Corr <- Target.Corr
+  Best.Corr <- Intermediate.Corr <- Target.Corr
 
   # Generate random normal data for shared and unique components, initialize factor loadings (steps 5, 6) --------
   Shared.Comp <- matrix(rnorm(N.pop * nfact, 0, 1), nrow = N.pop, ncol = nfact)
@@ -158,6 +158,7 @@ GenData <- function(response, nfact = 1, N.pop = 10000, Max.Trials = 5, lr = 1,
     } else {
       Trials.Without.Improvement <- Trials.Without.Improvement + 1
       Current.Multiplier <- lr * 0.5 ^ Trials.Without.Improvement
+      Best.Res <- Residual.Corr
       Intermediate.Corr <- Best.Corr + Current.Multiplier * Best.Res
     }
   }

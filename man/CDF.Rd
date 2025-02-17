@@ -7,7 +7,7 @@
 CDF(
   response,
   num.trees = 500,
-  mtry = 13,
+  mtry = "sqrt",
   nfact.max = 10,
   N.pop = 10000,
   N.Samples = 500,
@@ -23,7 +23,9 @@ to × \code{I} items.}
 
 \item{num.trees}{the number of trees in the Random Forest. (default = 500) See details.}
 
-\item{mtry}{the maximum depth for each tree. (default = 13) See details.}
+\item{mtry}{the maximum depth for each tree, can be a number or a character (\code{"sqrt"}).
+When \code{mtry = "sqrt"}, it means that the maximum depth of each tree will be determined by the square root of
+the number of available features (converted to an integer by \link[base]{round}).default = \code{"sqrt"}. See details.}
 
 \item{nfact.max}{The maximum number of factors discussed by CD approach. (default = 10)}
 

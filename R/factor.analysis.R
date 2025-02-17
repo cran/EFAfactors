@@ -81,17 +81,17 @@
 #'
 #' ## Run factor.analysis function to extract 5 factors
 #' \donttest{
-#'  PAF.obj <- factor.analysis(response, nfact = 5)
+#' PAF.obj <- factor.analysis(response, nfact = 5)
 #'
 #'
-#'  ## Get the loadings, eigen.value and  H2 results.
-#'  loadings <- PAF.obj$loadings
-#'  eigen.value <- PAF.obj$eigen.value
-#'  H2 <- PAF.obj$H2
+#' ## Get the loadings, eigen.value and  H2 results.
+#' loadings <- PAF.obj$loadings
+#' eigen.value <- PAF.obj$eigen.value
+#' H2 <- PAF.obj$H2
 #'
-#'  print(loadings)
-#'  print(eigen.value)
-#'  print(H2)
+#' print(loadings)
+#' print(eigen.value)
+#' print(H2)
 #'
 #' }
 #'
@@ -115,7 +115,11 @@ factor.analysis <- function(data, nfact = 1, iter.max = 1000, criterion = 0.001,
   if (ncol(data) != nrow(data)) {
     Cor.Matrix <- as.matrix(cor(data, method = cor.type, use = use))
   } else {
-    Cor.Matrix <- data
+    if(!is.Symmetric(data)){
+      Cor.Matrix <- as.matrix(cor(data, method = cor.type, use = use))
+    }else{
+      Cor.Matrix <- data
+    }
   }
 
   I <- dim(data)[2]
@@ -127,4 +131,8 @@ factor.analysis <- function(data, nfact = 1, iter.max = 1000, criterion = 0.001,
   H2 <- FactorAnalysisCpp.obj$H2
 
   return(list(loadings = loadings[, 1:nfact], eigen.value = eigen.value, H2=H2))
+}
+
+is.Symmetric <- function(mat) {
+  all(mat == t(mat))
 }
