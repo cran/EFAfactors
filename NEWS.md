@@ -1,3 +1,7 @@
+# EFAfactors 1.2.2
+
+-   Fixed   - Fixed the issue where the loadings in `factor.analysis` may be inverted.
+
 # EFAfactors 1.2.1
 
 -   Change  - Optimized the `CDF` function code to improve its execution efficiency.

@@ -1,6 +1,6 @@
-8d8af3834f6e795d2a009c5796abccab *DESCRIPTION
+cf7b26d5229db6b0ca054f9a5a520381 *DESCRIPTION
 ab0148d2bf638e9725be76c5a9f8318e *NAMESPACE
-5db371fc8092d4a980958dd27187e44f *NEWS.md
+dd3fb9c64c3d9ea98cd7f21506d1ca37 *NEWS.md
 ced35e78729f132b28268797a0e072d9 *R/CD.R
 e93e654205089d829c924677ae71381e *R/CDF.R
 29985caf15ed848b725e8b15110b0be7 *R/DNN_predictor.R
@@ -12,7 +12,7 @@ b293ace514ddb0c24147ae9fa3138147 *R/EFAkmeans.R
 8931402f626c9de3e4d81c6b1b4a6467 *R/EFAvote.R
 049981dd94dd3293853e504a59cb4df5 *R/EKC.R
 0fe71d5532ef033d27716324cef466e1 *R/FF.R
-90193edd445af45622fcc09b5f48089f *R/GenData.R
+5edd30c261db23e2082ae27dda758c5d *R/GenData.R
 b95ab02fc0b359ce4c3b2a0c96a7fc57 *R/Hull.R
 3a76765a459f11323d0441689bc862e5 *R/KGC.R
 7f1badf8aef43241d3183b86d9b04da3 *R/PA.R
@@ -95,14 +95,14 @@ d045251879f7f7e417701ad374ad1ce5 *man/print.KGC.Rd
 b7611f8efafefe442220dc2d82da06c1 *man/print.PA.Rd
 c8b953011322f69194775081b56e7e8d *src/Makevars
 c8b953011322f69194775081b56e7e8d *src/Makevars.win
-dbdc9e0134dae6f7ddd1d6e7b59a8b4a *src/PAFCpp.cpp
+2a90e5514aa47c5f504d7ade72229dda *src/PAFCpp.cpp
 4c5d9f166610ade42d2e25751ef203b8 *src/RcppExports.cpp
 bfa90538fad74c1577a26af91dbd5cf1 *src/calculateData.cpp
 a69711adee0b75b497d6c6fcc6076bef *src/calculateRMSE.cpp
 cbf21ae797845a3b38b77ba7e8859401 *src/generateDistributions.cpp
 718c51fafdcc7d2f1b5f56a15d6d9800 *src/sampleResponse.cpp
 dbe26151716ce80e1c4f1a20d8d4e781 *src/sortData.cpp
-8afdd4c6d3ab3e8f39713d6ff7468505 *tests/building.R
+e86db96debbb753028c3b827826db491 *tests/building.R
 f62a0c7a3b919fa58274780e3ed2ece2 *tests/testthat/demo_realdata.R
 19c066e024a5256786f01df6c169685e *tests/testthat/demo_simulate.R
 5e58a667f2d59521c340c5b3e53ac44c *tests/testthat/demo_simulate2.R

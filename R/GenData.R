@@ -191,8 +191,8 @@ GenData <- function(response, nfact = 1, N.pop = 10000, Max.Trials = 5, lr = 1,
 
   Data <- apply(Data, 2, scale) # standardizes each variable in the matrix
   for (i in 1:I) {
-    Data <- Data[sort.list(Data[,i]),]
-    Data[,i] <- Distributions[,i]
+    Data <- Data[sort.list(Data[, i]),]
+    Data[,i] <- Distributions[, i]
   }
 
   return(Data)
