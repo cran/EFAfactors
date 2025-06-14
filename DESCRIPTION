@@ -1,8 +1,8 @@
 Package: EFAfactors
 Type: Package
 Title: Determining the Number of Factors in Exploratory Factor Analysis
-Version: 1.2.2
-Date: 2025-04-29
+Version: 1.2.3
+Date: 2025-06-14
 Author: Haijiang Qin [aut, cre, cph] (ORCID:
     <https://orcid.org/0009-0000-6721-5653>),
   Lei Guo [aut, cph] (ORCID: <https://orcid.org/0000-0002-8273-3587>)
@@ -37,5 +37,5 @@ Collate: 'CD.R' 'CDF.R' 'check_python_libraries.R' 'data.bfi.R'
         'RcppExports.R' 'af.softmax.R' 'utils.R' 'zzz.R'
 Repository: CRAN
 URL: https://haijiangqin.com/EFAfactors/
-Packaged: 2025-05-01 11:08:18 UTC; Haiji
-Date/Publication: 2025-05-01 13:40:10 UTC
+Packaged: 2025-06-14 16:40:18 UTC; Haiji
+Date/Publication: 2025-06-14 17:10:02 UTC

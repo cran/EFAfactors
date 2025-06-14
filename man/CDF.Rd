@@ -101,52 +101,6 @@ which results in \eqn{m_{try}=\sqrt{181}=13}.
 Since the CDF approach requires extensive data simulation and computation, which is much more time consuming
 than the \link[EFAfactors]{CD} Approach, C++ code is used to speed up the process.
 }
-\examples{
-library(EFAfactors)
-set.seed(123)
-
-##Take the data.bfi dataset as an example.
-data(data.bfi)
-
-response <- as.matrix(data.bfi[, 1:25]) ## loading data
-response <- na.omit(response) ## Remove samples with NA/missing values
-
-## Transform the scores of reverse-scored items to normal scoring
-response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
-
-## Run CDF function with default parameters.
-\donttest{
-CDF.obj <- CDF(response)
-
-print(CDF.obj)
-
-## CDF plot
-plot(CDF.obj)
-
-## Get the nfact results.
-nfact <- CDF.obj$nfact
-print(nfact)
-
-}
-
-## Limit the maximum number of factors to 8, with populations set to 5000.
-\donttest{
-CDF.obj <- CDF(response, nfact.max=8, N.pop = 5000)
-
-print(CDF.obj)
-
-## CDF plot
-plot(CDF.obj)
-
-## Get the nfact results.
-nfact <- CDF.obj$nfact
-print(nfact)
-
-}
-
-
-
-}
 \references{
 Breiman, L. (2001). Random Forests. Machine Learning, 45(1), 5-32. https://doi.org/10.1023/A:1010933404324
 

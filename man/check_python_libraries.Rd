@@ -17,8 +17,3 @@ This function checks whether the Python libraries `numpy` and `onnxruntime` are 
 the user to decide whether to install them. If the user chooses 'y', the required library will be installed using
 the `reticulate` package. If the user chooses 'n', the installation will be skipped. @seealso \link[EFAfactors]{DNN_predictor}
 }
-\examples{
-# Check and install necessary Python libraries
-check_python_libraries()
-
-}

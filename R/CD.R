@@ -82,56 +82,6 @@
 #'
 #' @author Haijiang Qin <Haijiang133@outlook.com>
 #'
-#' @examples
-#' library(EFAfactors)
-#' set.seed(123)
-#'
-#' ##Take the data.bfi dataset as an example.
-#' data(data.bfi)
-#'
-#' response <- as.matrix(data.bfi[, 1:25]) ## loading data
-#' response <- na.omit(response) ## Remove samples with NA/missing values
-#'
-#' ## Transform the scores of reverse-scored items to normal scoring
-#' response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
-#'
-#'
-#' ## Run CD function with default parameters.
-#' \donttest{
-#' CD.obj <- CD(response)
-#'
-#' print(CD.obj)
-#'
-#' ## CD plot
-#' plot(CD.obj)
-#'
-#' ## Get the RMSE.Eigs and nfact results.
-#' RMSE.Eigs <- CD.obj$RMSE.Eigs
-#' nfact <- CD.obj$nfact
-#'
-#' head(RMSE.Eigs)
-#' print(nfact)
-#'
-#' }
-#'
-#' ## Limit the maximum number of factors to 8, with populations set to 5000.
-#' \donttest{
-#' CD.obj <- CD(response, nfact.max=8, N.pop = 5000)
-#' 
-#' print(CD.obj)
-#' 
-#' ## CD plot
-#' plot(CD.obj)
-#' 
-#' ## Get the RMSE.Eigs and nfact results.
-#' RMSE.Eigs <- CD.obj$RMSE.Eigs
-#' nfact <- CD.obj$nfact
-#' 
-#' head(RMSE.Eigs)
-#' print(nfact)
-#' 
-#' }
-#'
 #'
 #'
 #'

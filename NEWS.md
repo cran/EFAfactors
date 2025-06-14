@@ -1,3 +1,9 @@
+# EFAfactors 1.2.3
+
+-   Note    - Due to the correction of `factor.analysis` in version 1.2.3, methods involving `factor.analysis` may produce different outputs compared to versions prior to 1.2.3, such as `CD` and `FF`. Please take the results from the new version as the standard.
+-   Fixed   - Fixed the issue where `factor.analysis` only returned `nfact` eigenvalues.
+-   Change  - At the request of CRAN, some `Examples` have been removed to avoid excessive time consumption during automatic checks.
+
 # EFAfactors 1.2.2
 
 -   Fixed   - Fixed the issue where the loadings in `factor.analysis` may be inverted.

@@ -10,10 +10,6 @@
 #' \item{numpy_installed}{TRUE if `numpy` is installed, FALSE otherwise.}
 #' \item{onnxruntime_installed}{TRUE if `onnxruntime` is installed, FALSE otherwise.}
 #'
-#' @examples
-#' # Check and install necessary Python libraries
-#' check_python_libraries()
-#'
 #' @import reticulate
 #' @export
 check_python_libraries <- function() {

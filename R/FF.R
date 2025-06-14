@@ -113,7 +113,7 @@
 #'
 #'
 #' ## Run FF function with default parameters.
-#' \donttest{
+#' \dontrun{
 #' FF.obj <- FF(response)
 #'
 #' print(FF.obj)

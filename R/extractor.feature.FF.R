@@ -52,29 +52,6 @@
 #' Goretzko, D., & Buhner, M. (2020). One model to rule them all? Using machine learning algorithms to determine the number of factors in exploratory factor analysis. Psychol Methods, 25(6), 776-786. https://doi.org/10.1037/met0000262.
 #'
 #'
-#' @examples
-#' library(EFAfactors)
-#' set.seed(123)
-#'
-#' ##Take the data.bfi dataset as an example.
-#' data(data.bfi)
-#'
-#' response <- as.matrix(data.bfi[, 1:25]) ## loading data
-#' response <- na.omit(response) ## Remove samples with NA/missing values
-#'
-#' ## Transform the scores of reverse-scored items to normal scoring
-#' response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22, 25)] + 1
-#'
-#'
-#' ## Run extractor.feature.FF function with default parameters.
-#' \donttest{
-#' features <- extractor.feature.FF(response)
-#'
-#' print(features)
-#'
-#'
-#' }
-#'
 #'
 #' @export
 #'

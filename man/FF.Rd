@@ -122,7 +122,7 @@ response[, c(1, 9, 10, 11, 12, 22, 25)] <- 6 - response[, c(1, 9, 10, 11, 12, 22
 
 
 ## Run FF function with default parameters.
-\donttest{
+\dontrun{
 FF.obj <- FF(response)
 
 print(FF.obj)

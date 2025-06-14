@@ -65,7 +65,7 @@ List PAFCpp(arma::mat Cor_Matrix, int N_Factors, int Max_Iter = 1000, double Cri
   }
 
   // 只返回前N_Factors的特征值（因只取了前N因子）
-  arma::vec final_eigenvalues = Eig_Values.head(N_Factors);
+  arma::vec final_eigenvalues = Eig_Values;
 
   return List::create(
     Named("eigen") = final_eigenvalues,

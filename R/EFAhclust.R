@@ -90,8 +90,6 @@
 #' ## Get the nfact retained by SOD
 #' nfact.SOD <- EFAhclust.obj$nfact.SOD
 #' print(nfact.SOD)
-#'
-#'
 #' }
 #'
 #'

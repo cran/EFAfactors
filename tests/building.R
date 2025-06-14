@@ -21,7 +21,7 @@
 
 # pkgdown::build_site()  ## buile website manual
 
-# # devtools::build()  ## build .tar.gz file
+# devtools::build()  ## build .tar.gz file
 
 # devtools::check(manual = TRUE)
 
